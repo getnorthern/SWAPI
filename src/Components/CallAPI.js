@@ -100,8 +100,6 @@ class CallAPI extends React.Component {
 
   render() {
 
-    console.log('people.count = ', this.state.people.count);
-
     const { error, isLoaded, people } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
