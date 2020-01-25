@@ -18,8 +18,8 @@ const progress = keyframes`
 `;
 
 const OuterWrapper = styled.div`
-  background: rgba(0,0,0,0.7);
-  position: absolute;
+  background: rgba(0,0,0,0.85);
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;

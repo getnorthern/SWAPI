@@ -33,9 +33,6 @@ class PaginationNumbers extends React.Component {
       return range(1, pages);
     };
 
-    console.log('currentPage = ', currentPage);
-    console.log('page = ', this.props.page);
-
     return (
       <nav>
         <Wrapper>

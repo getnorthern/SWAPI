@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import AvatarHairColor from './AvatarConfig';
+import {AvatarHairColor, AvatarSkinColor} from './AvatarConfig';
 
 const OuterWrapper = styled.span`
   display: block;
@@ -17,7 +17,7 @@ const OuterWrapper = styled.span`
 
 const Face = styled.span`
   display: block;
-  background: pink;
+  background: ${props => props.skinColor};
   position: absolute;
   top: 50%;
   left: 50%;
@@ -103,9 +103,12 @@ const Mouth = styled.span`
 `;
 
 const Avatar  = (props) => {
+
+  console.log('props.skinColor = ', props.skinColor);
+
   return (
     <OuterWrapper>
-      <Face gender={props.gender}>
+      <Face gender={props.gender} skinColor={AvatarSkinColor(props)}>
         <HairLeft hairColor={AvatarHairColor(props)} />
         <HairRight hairColor={AvatarHairColor(props)} />
         <EyeLeft eyeColor={props.eyeColor}><span><span /></span></EyeLeft>

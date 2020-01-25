@@ -86,7 +86,6 @@ class CallAPI extends React.Component {
   }
 
   search(searchTerm) {
-    console.log('searchTerm = ', searchTerm);
     this.setState({
       isUpdating: true,
       page: 1,
