@@ -24,6 +24,7 @@ class CallAPI extends React.Component {
       previous: null,
       numberPerPage: 10,
       numberOfPages: null,
+      searchTerm: null,
     };
     this.getData = this.getData.bind(this);
     this.prevPage = this.prevPage.bind(this);
@@ -82,12 +83,17 @@ class CallAPI extends React.Component {
       isUpdating: true,
       page: page,
     });
-    this.getData(`${this.state.baseURL}/people/?page=${page}`);
+    this.state.resultType === 'search' ?
+      this.getData(`${this.state.baseURL}/people/?page=${page}&search=${this.state.searchTerm}`) :
+      this.getData(`${this.state.baseURL}/people/?page=${page}`)
+    ;
   }
 
   search(searchTerm) {
     this.setState({
       isUpdating: true,
+      searchTerm: searchTerm,
+      resultType: 'search',
       page: 1,
     });
     this.getData(`${this.state.baseURL}/people/?search=${searchTerm}`);
