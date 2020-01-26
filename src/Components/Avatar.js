@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
+
+import Modal from './Modal';
 
 import {AvatarHairColor, AvatarSkinColor} from './AvatarConfig';
 
@@ -13,6 +15,12 @@ const OuterWrapper = styled.span`
   background: linear-gradient(-155deg, #ddd 30%, #fff 40%, #fff 60%, #ddd 70%);
   box-shadow: 0 0 20px rgba(255,255,255,0.7);
   margin: 0 auto;
+  transition: box-shadow 0.7s, transform 0.2s;
+  :hover {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.9);
+    transform: scale(1.05);
+    cursor: pointer;
+  }
 `;
 
 const Face = styled.span`
@@ -102,21 +110,24 @@ const Mouth = styled.span`
   border-radius: .5rem;
 `;
 
-const Avatar  = (props) => {
+const Avatar = (props) => {
 
-  console.log('props.skinColor = ', props.skinColor);
+  const [showInfo, setShowInfo] = useState(false);
 
   return (
-    <OuterWrapper>
-      <Face gender={props.gender} skinColor={AvatarSkinColor(props)}>
-        <HairLeft hairColor={AvatarHairColor(props)} />
-        <HairRight hairColor={AvatarHairColor(props)} />
-        <EyeLeft eyeColor={props.eyeColor}><span><span /></span></EyeLeft>
-        <EyeRight eyeColor={props.eyeColor}><span><span /></span></EyeRight>
-        <Mouth gender={props.gender}/>
-      </Face>
-    </OuterWrapper>
-  )
+    <>
+      <OuterWrapper onClick={() => setShowInfo(!showInfo)}>
+        <Face gender={props.gender} skinColor={AvatarSkinColor(props)}>
+          <HairLeft hairColor={AvatarHairColor(props)} />
+          <HairRight hairColor={AvatarHairColor(props)} />
+          <EyeLeft eyeColor={props.eyeColor}><span><span /></span></EyeLeft>
+          <EyeRight eyeColor={props.eyeColor}><span><span /></span></EyeRight>
+          <Mouth gender={props.gender}/>
+        </Face>
+      </OuterWrapper>
+      <Modal showInfo={showInfo} setShowInfo={setShowInfo} person={props.person} />
+    </>
+  );
 };
 
 export default Avatar;

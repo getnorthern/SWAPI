@@ -135,6 +135,7 @@ class CallAPI extends React.Component {
             {people.results.map(person => (
               <li key={person.name}>
                 <Avatar
+                  person={person}
                   gender={person.gender}
                   hairColor={person.hair_color}
                   skinColor={person.skin_color}
