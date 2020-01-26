@@ -63,7 +63,7 @@ const Search = (props) => {
         <SearchButton disabled={disableSearch} type={'Submit'} onClick={() => props.clickAction(searchTerm)}>Search</SearchButton>
       </InnerWrapper>
       {props.count === 0 && <Result>No characters found. Please try a different search term, or <Return onClick={() => props.return(`${props.baseURL}/people/`)}>return to the character list</Return>.</Result>}
-      {props.resultType === 'search' && props.count > 0 && <Result><Return onClick={() => props.return(`${props.baseURL}/people/`)}>Clear search</Return></Result>}
+      {props.resultType === 'search' && props.count > 0 && <Result><Return onClick={() => props.return(`${props.baseURL}/people/`)}>Return to the character list</Return></Result>}
     </Wrapper>
   );
 };
