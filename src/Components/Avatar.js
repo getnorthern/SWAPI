@@ -125,7 +125,7 @@ const Avatar = (props) => {
           <Mouth gender={props.gender}/>
         </Face>
       </OuterWrapper>
-      <Modal showInfo={showInfo} setShowInfo={setShowInfo} person={props.person} />
+      {showInfo && <Modal showInfo={showInfo} setShowInfo={setShowInfo} person={props.person} />}
     </>
   );
 };
