@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 2.5rem;
-  max-width: 1200px;
+  max-width: 80rem;
   margin: 0 auto;
 `;
 

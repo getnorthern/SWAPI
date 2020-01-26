@@ -10,7 +10,7 @@ import PaginationNumbers from './PaginationNumbers';
 import Avatar from './Avatar';
 import Name from './Name';
 
-class CallAPI extends React.Component {
+class MainPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -114,7 +114,6 @@ class CallAPI extends React.Component {
   }
 
   render() {
-
     const { error, isLoaded, people } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
@@ -125,11 +124,33 @@ class CallAPI extends React.Component {
         <>
           {this.state.isUpdating && <Loader center text={'Updating results...'}>Loading...</Loader>}
           <Title>Star Wars Characters</Title>
-          <Search clickAction={this.search} count={people.count} return={this.return} baseURL={this.state.baseURL} resultType={this.state.resultType} formPreventDefault={this.formPreventDefault}/>
+          <Search
+            clickAction={this.search}
+            count={people.count}
+            return={this.return}
+            baseURL={this.state.baseURL}
+            resultType={this.state.resultType}
+            formPreventDefault={this.formPreventDefault}
+          />
           <PaginationWrapper>
-            <Pager disabled={!people.previous} clickAction={() => this.prevPage(people.previous || null)} style={{ color: '#fff'}}>&laquo; Prev</Pager>
-            {isLoaded && <PaginationNumbers people={this.state.people} numberPerPage={this.state.numberPerPage} page={this.state.page} setPage={this.setPage} />}
-            <Pager disabled={!people.next} clickAction={() => this.nextPage(people.next || null)} style={{ color: '#fff'}}>Next &raquo;</Pager>
+            <Pager
+              disabled={!people.previous}
+              clickAction={() => this.prevPage(people.previous || null)}
+            >
+              &laquo; Prev
+            </Pager>
+            {isLoaded && <PaginationNumbers
+              people={this.state.people}
+              numberPerPage={this.state.numberPerPage}
+              page={this.state.page}
+              setPage={this.setPage}
+            />}
+            <Pager
+              disabled={!people.next}
+              clickAction={() => this.nextPage(people.next || null)}
+            >
+              Next &raquo;
+            </Pager>
           </PaginationWrapper>
           <Grid>
             {people.results.map(person => (
@@ -147,9 +168,24 @@ class CallAPI extends React.Component {
             ))}
           </Grid>
           <PaginationWrapper>
-            <Pager disabled={!people.previous} clickAction={() => this.prevPage(people.previous || null)}>&laquo; Prev</Pager>
-            {isLoaded && <PaginationNumbers people={this.state.people} numberPerPage={this.state.numberPerPage} page={this.state.page} setPage={this.setPage} />}
-            <Pager disabled={!people.next} clickAction={() => this.nextPage(people.next || null)}>Next &raquo;</Pager>
+            <Pager
+              disabled={!people.previous}
+              clickAction={() => this.prevPage(people.previous || null)}
+            >
+              &laquo; Prev
+            </Pager>
+            {isLoaded && <PaginationNumbers
+              people={this.state.people}
+              numberPerPage={this.state.numberPerPage}
+              page={this.state.page}
+              setPage={this.setPage}
+            />}
+            <Pager
+              disabled={!people.next}
+              clickAction={() => this.nextPage(people.next || null)}
+            >
+              Next &raquo;
+            </Pager>
           </PaginationWrapper>
         </>
       );
@@ -157,4 +193,4 @@ class CallAPI extends React.Component {
   }
 }
 
-export default CallAPI;
+export default MainPage;

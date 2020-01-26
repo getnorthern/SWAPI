@@ -15,7 +15,6 @@ const Number = styled.span`
 class PaginationNumbers extends React.Component {
 
   render() {
-    const currentPage = this.props.page;
 
     const range = (from, to, step = 1) => {
       let i = from;

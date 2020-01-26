@@ -1,3 +1,5 @@
+// Hair and eye colors provided by SWAPI are not browser-recognised colors, so I'm mapping alternatives here.
+
 export const AvatarHairColor = (props) => {
   const hairColor = props.hairColor;
   switch (hairColor) {

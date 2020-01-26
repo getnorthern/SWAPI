@@ -57,13 +57,13 @@ const Text = styled.p`
 
 const Loader = (props) => (
   <OuterWrapper>
-    <Wrapper center={props.center} margin={props.margin}>
-      <SVG viewBox="0 0 36 36" className="circular-chart" width={props.width}>
+    <Wrapper>
+      <SVG viewBox="0 0 36 36" className="circular-chart">
         <Circle
           d="M18 2.0845
           a 15.9155 15.9155 0 0 1 0 31.831
           a 15.9155 15.9155 0 0 1 0 -31.831"
-          stroke={props.foregroundColour || '#C8C8C8'}
+          stroke={'#C8C8C8'}
         />
       </SVG>
       <Text>{props.text}</Text>

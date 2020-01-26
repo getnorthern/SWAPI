@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 
-import CallAPI from './Components/CallAPI';
+import MainPage from './Components/MainPage';
 
 function App() {
   return (
-    <CallAPI />
+    <MainPage />
   );
 }
 

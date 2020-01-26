@@ -15,7 +15,7 @@ const InnerWrapper = styled.div`
 `;
 
 const SearchInput = styled.input`
-  border: 2px solid yellow;
+  border: 0.2rem solid yellow;
   max-width: 20rem;
   font-size: 1.2rem;
   padding: .35rem .7rem;
@@ -28,8 +28,8 @@ const SearchButton = styled.button`
   padding: padding: .35rem .7rem;
   background: #000;
   color: ${props => props.disabled ? 'rgba(255, 255, 0, 0.2)' : 'yellow'};
-  border: 2px solid yellow;
-  border-width: 2px 2px 2px 0;
+  border: .2rem solid yellow;
+  border-width: .2rem .2rem .2rem 0;
   cursor: ${props => props.disabled ? 'default' : 'pointer'};
   outline: none;
   transition: color 0.3s;

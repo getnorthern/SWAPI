@@ -13,11 +13,11 @@ const OuterWrapper = styled.span`
   border: .2rem solid #000;
   position: relative;
   background: linear-gradient(-155deg, #ddd 30%, #fff 40%, #fff 60%, #ddd 70%);
-  box-shadow: 0 0 20px rgba(255,255,255,0.7);
+  box-shadow: 0 0 2rem rgba(255,255,255,0.7);
   margin: 0 auto;
   transition: box-shadow 0.7s, transform 0.2s;
   :hover {
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.9);
+    box-shadow: 0 0 2rem rgba(255, 0, 0, 0.9);
     transform: scale(1.05);
     cursor: pointer;
   }
@@ -34,7 +34,7 @@ const Face = styled.span`
   width: ${props => props.gender === 'male' || props.gender === 'n/a' ? '7rem' : '6.5rem'};
   height: 8rem;
   border-radius: ${props => props.gender === 'male' || props.gender === 'n/a' ? '30% 30% 35% 35%' : '40% 40% 50% 50%'};
-  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  box-shadow: 0 0 1.5rem rgba(0,0,0,0.4);
 `;
 
 const HairLeft = styled.span`
@@ -49,7 +49,7 @@ const HairLeft = styled.span`
   left: 0;
   transform: translate(-48%, -40%);
   z-index: 10;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 1rem rgba(0,0,0,0.5);
 `;
 
 const HairRight = styled(HairLeft)`
