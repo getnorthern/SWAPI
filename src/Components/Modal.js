@@ -72,7 +72,7 @@ const Text = styled.section`
 
 const AnimateText = styled.div`
   position: relative;
-  top: 9999rem;
+  top: 100vh;
   transform-origin: 50% 100%;
   animation: ${textAnimation} 60s linear;
   p {
