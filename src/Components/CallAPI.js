@@ -31,6 +31,7 @@ class CallAPI extends React.Component {
     this.nextPage = this.nextPage.bind(this);
     this.setPage = this.setPage.bind(this);
     this.search = this.search.bind(this);
+    this.return = this.return.bind(this);
     this.formPreventDefault = this.formPreventDefault.bind(this);
   }
 
@@ -103,6 +104,15 @@ class CallAPI extends React.Component {
     e.preventDefault();
   }
 
+  return(url) {
+    this.getData(url);
+    this.setState({
+      resultType: null,
+      isUpdating: true,
+      page: 1,
+    });
+  }
+
   render() {
 
     const { error, isLoaded, people } = this.state;
@@ -115,7 +125,7 @@ class CallAPI extends React.Component {
         <>
           {this.state.isUpdating && <Loader center text={'Updating results...'}>Loading...</Loader>}
           <Title>Star Wars Characters</Title>
-          <Search clickAction={this.search} count={people.count} return={this.getData} baseURL={this.state.baseURL} formPreventDefault={this.formPreventDefault}/>
+          <Search clickAction={this.search} count={people.count} return={this.return} baseURL={this.state.baseURL} resultType={this.state.resultType} formPreventDefault={this.formPreventDefault}/>
           <PaginationWrapper>
             <Pager disabled={!people.previous} clickAction={() => this.prevPage(people.previous || null)} style={{ color: '#fff'}}>&laquo; Prev</Pager>
             {isLoaded && <PaginationNumbers people={this.state.people} numberPerPage={this.state.numberPerPage} page={this.state.page} setPage={this.setPage} />}
