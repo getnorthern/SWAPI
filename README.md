@@ -6,6 +6,8 @@ The project uses data from the Star Wars API (SWAPI - https://swapi.co/)
 
 Clone the repo to your local machine.
 
+Open the project directory, e.g. <code>cd SWAPI</code>
+
 Run <code>npm i</code> to install all dependencies.
 
 Run <code>npm start</code> to run the project.
